@@ -8,7 +8,7 @@ import { ABOUT, CONTACT, HOME } from "../constants/page-path";
 
 export default function Footer() {
   return (
-    <footer className="w-full py-5 px-4 bg-white flex flex-col items-center justify-center gap-5">
+    <footer className="w-full py-6 px-4 bg-white flex flex-col items-center justify-center gap-5 shadow-xl">
       <div className="flex items-center gap-4">
         <a href="#" target="_blank" rel="noopener noreferrer">
           <LuInstagram className="w-5 h-5 text-[#0D7711]" />
@@ -23,7 +23,7 @@ export default function Footer() {
           <IoLogoYoutube className="w-5 h-5 text-[#0D7711]" />
         </a>
       </div>
-      <div className="flex items-center gap-4 font-medium text-xl text-black">
+      <div className="flex items-center gap-4 font-medium text-base text-black">
         <Link to={ABOUT}>About</Link>
         <Link to={"#"}>Service</Link>
         <Link to={CONTACT}>Contact</Link>

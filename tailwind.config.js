@@ -6,6 +6,13 @@ export default {
       colors: {
         primary: "#68F86E",
       },
+      screens: {
+        print: { raw: "print" },
+        mobile: { max: "635px" },
+        tablet: { max: "1200px" },
+        desktop: { max: "1280px" },
+        "large-screen": { max: "1536px" },
+      },
       fontFamily: {
         Merriweather: ["Merriweather", "serif"],
         museo: ["Museo sans", "Sans"],

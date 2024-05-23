@@ -1,19 +1,18 @@
-
-import { Disclosure } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
-import { PlusIcon } from '@heroicons/react/20/solid'
-import logo from "../assets/images/logo.svg"
-import { ABOUT, CONTACT, HOME } from '../constants/page-path'
-import { Link } from "react-router-dom";
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function classNames(...classes: string[]) {
-  return classes.filter(Boolean).join(' ')
-}
+import { Disclosure } from "@headlessui/react";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { PlusIcon } from "@heroicons/react/20/solid";
+import logo from "../assets/images/logo.svg";
+import { ABOUT, CONTACT, HOME } from "../constants/page-path";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
+  const { pathname } = useLocation();
+
   return (
-    <Disclosure as="nav" className="bg-black shadow fixed w-full z-10">
+    <Disclosure
+      as="nav"
+      className="bg-black fixed w-full z-10 bg-opacity-70 backdrop-blur-md backdrop-filter shadow-lg"
+    >
       {({ open }) => (
         <>
           <div className="mx-auto px-4 sm:px-8">
@@ -32,41 +31,57 @@ export default function Navbar() {
                   </Disclosure.Button>
                 </div>
                 <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="h-20 w-20"
-                    src={logo}
-                    alt="Your Company"
-                  />
+                  <img className="h-20 w-20" src={logo} alt="Your Company" />
                 </div>
                 <div className="hidden md:ml-6 md:flex md:space-x-8">
                   {/* Current: "border-indigo-500 text-gray-900", Default: "border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700" */}
                   <Link
                     to={HOME}
-                    className="inline-flex items-center border-b-2 border-[#D9D9D9] px-1 pt-1 text-xl font-medium text-primary"
+                    className={`inline-flex items-center border-b-2 ${
+                      pathname === "/"
+                        ? "border-[#D9D9D9]"
+                        : "border-transparent"
+                    }  px-1 pt-1 text-xl font-medium text-primary`}
                   >
                     Home
                   </Link>
                   <Link
                     to={ABOUT}
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-xl font-medium text-primary"
+                    className={`inline-flex items-center border-b-2 ${
+                      pathname === "/about"
+                        ? "border-[#D9D9D9]"
+                        : "border-transparent"
+                    }  px-1 pt-1 text-xl font-medium text-primary`}
                   >
                     About Us
                   </Link>
                   <Link
                     to="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-xl font-medium text-primary"
+                    className={`inline-flex items-center border-b-2 ${
+                      pathname === "/catalog"
+                        ? "border-[#D9D9D9]"
+                        : "border-transparent"
+                    }  px-1 pt-1 text-xl font-medium text-primary`}
                   >
                     Catalog
                   </Link>
                   <Link
                     to="#"
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-xl font-medium text-primary"
+                    className={`inline-flex items-center border-b-2 ${
+                      pathname === "/learn"
+                        ? "border-[#D9D9D9]"
+                        : "border-transparent"
+                    }  px-1 pt-1 text-xl font-medium text-primary`}
                   >
                     Learn
                   </Link>
                   <Link
                     to={CONTACT}
-                    className="inline-flex items-center border-b-2 border-transparent px-1 pt-1 text-xl font-medium text-primary"
+                    className={`inline-flex items-center border-b-2 ${
+                      pathname === "/contact"
+                        ? "border-[#D9D9D9]"
+                        : "border-transparent"
+                    }  px-1 pt-1 text-xl font-medium text-primary`}
                   >
                     Contact
                   </Link>
@@ -82,7 +97,6 @@ export default function Navbar() {
                     Book A Service
                   </button>
                 </div>
-               
               </div>
             </div>
           </div>
@@ -92,82 +106,43 @@ export default function Navbar() {
               {/* Current: "bg-indigo-50 border-indigo-500 text-indigo-700", Default: "border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700" */}
               <Disclosure.Button
                 as="a"
-                href="#"
+                href={HOME}
                 className="block border-l-4 border-indigo-500 bg-indigo-50 py-2 pl-3 pr-4 text-base font-medium text-indigo-700 sm:pl-5 sm:pr-6"
               >
-                Dashboard
+                Home
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href={ABOUT}
+                className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
+              >
+                About Us
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="#"
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
-                Team
+                Catalog
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="#"
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
-                Projects
+                Learn
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
-                href="#"
+                href={CONTACT}
                 className="block border-l-4 border-transparent py-2 pl-3 pr-4 text-base font-medium text-gray-500 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-700 sm:pl-5 sm:pr-6"
               >
-                Calendar
+                Contact
               </Disclosure.Button>
-            </div>
-            <div className="border-t border-gray-200 pb-3 pt-4">
-              <div className="flex items-center px-4 sm:px-6">
-                <div className="flex-shrink-0">
-                  <img
-                    className="h-10 w-10 rounded-full"
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    alt=""
-                  />
-                </div>
-                <div className="ml-3">
-                  <div className="text-base font-medium text-gray-800">Tom Cook</div>
-                  <div className="text-sm font-medium text-gray-500">tom@example.com</div>
-                </div>
-                <button
-                  type="button"
-                  className="relative ml-auto flex-shrink-0 rounded-full bg-white p-1 text-gray-400 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
-              </div>
-              <div className="mt-3 space-y-1">
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 sm:px-6"
-                >
-                  Your Profile
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 sm:px-6"
-                >
-                  Settings
-                </Disclosure.Button>
-                <Disclosure.Button
-                  as="a"
-                  href="#"
-                  className="block px-4 py-2 text-base font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-800 sm:px-6"
-                >
-                  Sign out
-                </Disclosure.Button>
-              </div>
             </div>
           </Disclosure.Panel>
         </>
       )}
     </Disclosure>
-  )
+  );
 }
