@@ -1,4 +1,3 @@
-
 import ceo from "../../assets/images/about/ceo.svg";
 import photo from "../../assets/images/about/photo.svg";
 import fashion from "../../assets/images/about/fashion.svg";
@@ -16,38 +15,38 @@ const members = [
   },
   {
     img: photo,
-    name: "Gabriel Amponsah",
-    position: "Founder, Graphic Designer, 3d Artist & UI/UX Designer",
+    name: "Emmanuel Tsini",
+    position: "Photographer & Videographer",
   },
   {
     img: fashion,
-    name: "Gabriel Amponsah",
-    position: "Founder, Graphic Designer, 3d Artist & UI/UX Designer",
+    name: "Mercy Enyia Achonga",
+    position: "Fashion Designer",
   },
   {
     img: sales,
-    name: "Gabriel Amponsah",
-    position: "Founder, Graphic Designer, 3d Artist & UI/UX Designer",
+    name: "Marvellous Adraku",
+    position: "Sales Secretary/Hair Stylist",
   },
   {
     img: videograph,
-    name: "Gabriel Amponsah",
-    position: "Founder, Graphic Designer, 3d Artist & UI/UX Designer",
+    name: "Leslie Abbey",
+    position: "Photographer & Videographer",
   },
   {
     img: makeup,
-    name: "Gabriel Amponsah",
-    position: "Founder, Graphic Designer, 3d Artist & UI/UX Designer",
+    name: "Peace Adraku",
+    position: "Makeup Artist & Nail Technician",
   },
   {
     img: se,
-    name: "Gabriel Amponsah",
-    position: "Founder, Graphic Designer, 3d Artist & UI/UX Designer",
+    name: "Emmanuel Dodoo",
+    position: "Software Engineer & Developer",
   },
   {
     img: stylist,
-    name: "Gabriel Amponsah",
-    position: "Founder, Graphic Designer, 3d Artist & UI/UX Designer",
+    name: "Samuel Tei",
+    position: "Fashion Stylist",
   },
 ];
 
@@ -101,17 +100,18 @@ export default function About() {
 
         <div className="flex gap-10 items-center justify-center flex-wrap">
           {members.map((member, index) => (
-            <div
-              key={index}
-              className="w-56 flex flex-col items-center gap-3"
-            >
+            <div key={index} className="w-56 flex flex-col items-center gap-3">
               <img
                 src={member.img}
                 alt="member image"
                 className="w-full h-64 rounded-2xl"
               />
-              <h1 className="text-xl text-center text-primary font-extrabold">{member.name}</h1>
-              <p className="text-center text-base font-semibold">{member.position}</p>
+              <h1 className="text-xl text-center text-primary font-extrabold">
+                {member.name}
+              </h1>
+              <p className="text-center text-base font-semibold">
+                {member.position}
+              </p>
             </div>
           ))}
         </div>
