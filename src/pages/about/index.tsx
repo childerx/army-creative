@@ -1,4 +1,4 @@
-import React from "react";
+
 import ceo from "../../assets/images/about/ceo.svg";
 import photo from "../../assets/images/about/photo.svg";
 import fashion from "../../assets/images/about/fashion.svg";

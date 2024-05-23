@@ -1,4 +1,4 @@
-import React from "react";
+
 import Marquee from "react-fast-marquee";
 import headerImg from "../../assets/images/header-img.svg";
 import slide1 from "../../assets/images/slide-1.svg";
